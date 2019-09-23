@@ -1,0 +1,27 @@
+.box2 {
+   position: relative;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border-bottom: solid 3px #799dec;
+    border-radius: 8px;
+}
+
+h1{
+    text-align: right;
+}
+
+
+h1 span{
+float: left;
+}
+
+.log{
+   display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: white;
+  background-color: #799dec;
+  font-size:15px;
+
+}
