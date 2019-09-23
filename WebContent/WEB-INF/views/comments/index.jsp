@@ -9,7 +9,7 @@
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2>コメント一覧</h2>
+        <h2 class="itiran">コメント一覧</h2>
         <div >
 
             <ul>

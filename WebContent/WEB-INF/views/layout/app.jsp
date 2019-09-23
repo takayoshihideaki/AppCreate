@@ -15,7 +15,7 @@
     <div id="wrapper">
         <div id="header">
             <div id="header_menu">
-                <h1><span>コメント アプリケーション</span>
+                <h1><span>31ちゃんねる</span>
                 <c:choose>
                 <c:when test="${sessionScope.login_user != null}">
                     <c:out value="${sessionScope.login_user.name}" />&nbsp;さん&nbsp;&nbsp;&nbsp;
@@ -30,7 +30,7 @@
             </div>
         </div>
         <div id="content">${param.content}</div>
-        <div id="footer">by Hideaki Takayoshi.</div>
+        <div id="footer">Comment Application by Hideaki Takayoshi.</div>
     </div>
 </body>
 </html>
