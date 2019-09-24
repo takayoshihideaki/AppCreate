@@ -23,7 +23,7 @@
             <br /><br />
 
             <input type="hidden" name="_token" value="${_token}" />
-            <button type="submit">ログイン</button>&nbsp;&nbsp;&nbsp;
+            <button type="submit" class="button1">ログインする</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="${pageContext.request.contextPath}/users/new" class="touroku">新規ユーザー登録</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="${pageContext.request.contextPath}/index">コメント一覧へ</a>
         </form>
