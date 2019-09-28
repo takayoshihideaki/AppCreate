@@ -6,9 +6,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import models.Comment;
+
 import utils.DBUtil;
 import javax.servlet.RequestDispatcher;
 
@@ -35,6 +38,8 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
+
+
      // 開くページ数を取得（デフォルトは1ページ目）
         int page = 1;
         try {
@@ -51,8 +56,22 @@ public class IndexServlet extends HttpServlet {
         long comments_count = (long)em.createNamedQuery("getCommentsCount", Long.class)
                                       .getSingleResult();
 
+        List<Integer> iineCountList = new ArrayList<Integer>();
+
+        for(Comment comment : comments) {
+            long iineCount = (long)em.createNamedQuery("getIineCount", Long.class)
+                    .setParameter("id", comment.getId())
+                    .getSingleResult();
+            iineCountList.add((int)iineCount);
+        }
+
+
         em.close();
 
+
+
+
+        request.setAttribute("iineCountList",iineCountList );
         request.setAttribute("comments", comments);
         request.setAttribute("comments_count", comments_count);     // 全件数
         request.setAttribute("page", page);                         // ページ数
@@ -66,6 +85,8 @@ public class IndexServlet extends HttpServlet {
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/comments/index.jsp");
         rd.forward(request, response);
-    }
+
+
+}
 
 }

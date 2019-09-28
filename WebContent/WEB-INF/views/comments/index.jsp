@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:import url="../layout/app.jsp">
     <c:param name="content">
         <c:if test="${flush != null}">
@@ -10,26 +11,38 @@
             </div>
         </c:if>
         <h2 class="itiran">コメント一覧</h2>
-        <div >
+        <div>
 
             <ul>
+<c:set var="stm" value="0" />
                 <c:forEach var="comment" items="${comments}">
+
+
                     <li class="box2"><c:choose>
                             <c:when test="${sessionScope.login_user.id == comment.user.id}">
                                 <a
                                     href="${pageContext.request.contextPath}/show?id=${comment.id}">
                                     <c:out value="${comment.id}" /> (自分)
                                 </a>
-
+                                <c:out value="${item}" />
                             </c:when>
                             <c:otherwise>
                                 <a><c:out value="${comment.id}" /></a>
-
                             </c:otherwise>
                         </c:choose> ：【題名】<c:out value="${comment.title}">
-                        </c:out>&emsp;&emsp;<fmt:formatDate value="${comment.updated_at}" pattern="yyyy-MM-dd HH:mm:ss" /><br/><br/><c:out
-                            value="${comment.content}" /></li>
+                        </c:out>&emsp;&emsp;<fmt:formatDate value="${comment.updated_at}"
+                            pattern="yyyy-MM-dd HH:mm:ss" />&emsp; &emsp;
+                        <button type="button" class="but">
+                            いいね!
+                            <c:out value="${iineCountList[stm]}" />
+                        </button>
+                        <br /> <br /> <c:out value="${comment.content}" /></li>
+
+
+                    <c:set var="stm" value="${stm + 1}" />
+
                 </c:forEach>
+
             </ul>
 
         </div>
@@ -51,6 +64,5 @@
         <p>
             <a href="${pageContext.request.contextPath}/new">新規コメントの投稿</a>
         </p>
-
     </c:param>
 </c:import>

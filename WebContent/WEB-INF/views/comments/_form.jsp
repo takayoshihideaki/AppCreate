@@ -17,8 +17,9 @@
 <input type="text" name="title" value="${comment.title}" />
 <br /><br />
 
+
 <label for="content">内容</label><br />
-<input type="text" name="content" value="${comment.content}" />
+<textarea name="content" rows="5" cols="25">${comment.content}</textarea>
 <br /><br />
 
 
