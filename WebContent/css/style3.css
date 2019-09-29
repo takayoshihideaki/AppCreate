@@ -1,21 +1,45 @@
 .button2{
-   cursor: pointer;
+ position: relative;
   display: inline-block;
-  padding: 0.5em 1em;
+  padding: 0.1em 0.5em;
   text-decoration: none;
-  background: #FF5192;
   color: #FFF;
-  border-bottom: solid 4px #627295;
-  border-radius: 3px;
+  background: #ff69b4;/*背景色*/
+  border-bottom: solid 2px #ff69b4;/*少し濃い目の色に*/
+  border-radius: 4px;/*角の丸み*/
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+  font-weight: bold;
+
+
 }
 
 .button3{
-   cursor: pointer;
+  position: relative;
   display: inline-block;
-  padding: 0.5em 1em;
+  padding: 0.35em 0.5em;
   text-decoration: none;
-  background: #3cb371;
   color: #FFF;
-  border-bottom: solid 4px #627295;
-  border-radius: 3px;
+  background: #fd9535;/*背景色*/
+  border-bottom: solid 2px #d27d00;/*少し濃い目の色に*/
+  border-radius: 4px;/*角の丸み*/
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+  font-weight: bold;
+}
+#flush_iine {
+    width: 100%;
+    padding-top: 28px;
+    padding-left: 2%;
+    padding-bottom: 28px;
+    margin-bottom: 15px;
+    color: white;
+    background-color:#fd9535;
+}
+#flush_iine_delete {
+    width: 100%;
+    padding-top: 28px;
+    padding-left: 2%;
+    padding-bottom: 28px;
+    margin-bottom: 15px;
+    color: white;
+    background-color:#ff69b4;
 }

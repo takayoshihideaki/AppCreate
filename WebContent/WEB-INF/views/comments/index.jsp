@@ -9,6 +9,19 @@
             <div id="flush_success">
                 <c:out value="${flush}"></c:out>
             </div>
+
+        </c:if>
+         <c:if test="${iineflush != null}">
+            <div id="flush_iine">
+                <c:out value="${iineflush}"></c:out>
+            </div>
+
+        </c:if>
+        <c:if test="${iineflush2 != null}">
+            <div id="flush_iine_delete">
+                <c:out value="${iineflush2}"></c:out>
+            </div>
+
         </c:if>
         <h2 class="itiran">コメント一覧</h2>
         <div>
@@ -31,7 +44,7 @@
                             pattern="yyyy-MM-dd HH:mm:ss" />&emsp; &emsp; <c:choose>
                             <c:when test="${iineCountList2[stm] > 0}">
 
-                                <button type="button" class="button1">
+                                <button type="button" class="button3">
                                     いいね!
                                     <c:out value="${iineCountList[stm]}" />
                                 </button>
@@ -46,7 +59,7 @@
                             <c:otherwise>
                                 <a
                                     href="<c:url value='/IineCreate?comment_id=${comment.id}&user_id=${sessionScope.login_user.id}' />">
-                                    <button type="button" class="button1">
+                                    <button type="button" class="button3">
                                         いいね!
                                         <c:out value="${iineCountList[stm]}" />
                                     </button>

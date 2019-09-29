@@ -59,6 +59,8 @@ public class IineCreate extends HttpServlet {
 
         tx.commit();
 
+        request.getSession().setAttribute("iineflush", "いいね！を押しました");
+
         RequestDispatcher rd = request.getRequestDispatcher("/index");
         rd.forward(request, response);
     }

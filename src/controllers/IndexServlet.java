@@ -79,15 +79,7 @@ public class IndexServlet extends HttpServlet {
             iineCountList2.add((int)user_iine);
         }
 
-
-
-
-
-
         em.close();
-
-
-
 
         request.setAttribute("iineCountList",iineCountList );
         request.setAttribute("iineCountList2",iineCountList2 );
@@ -101,6 +93,17 @@ public class IndexServlet extends HttpServlet {
             request.setAttribute("flush", request.getSession().getAttribute("flush"));
             request.getSession().removeAttribute("flush");
         }
+        if(request.getSession().getAttribute("iineflush") != null) {
+            request.setAttribute("iineflush", request.getSession().getAttribute("iineflush"));
+            request.getSession().removeAttribute("iineflush");
+        }
+        if(request.getSession().getAttribute("iineflush2") != null) {
+            request.setAttribute("iineflush2", request.getSession().getAttribute("iineflush2"));
+            request.getSession().removeAttribute("iineflush2");
+        }
+
+
+
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/comments/index.jsp");
         rd.forward(request, response);

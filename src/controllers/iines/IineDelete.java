@@ -60,6 +60,8 @@ public class IineDelete extends HttpServlet {
 
       tx.commit();
 
+      request.getSession().setAttribute("iineflush2", "いいね！を取り消しました");
+
         RequestDispatcher rd = request.getRequestDispatcher("/index");
         rd.forward(request, response);
     }
