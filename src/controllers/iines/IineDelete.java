@@ -60,7 +60,7 @@ public class IineDelete extends HttpServlet {
 
       tx.commit();
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/reports/iine2.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/index");
         rd.forward(request, response);
     }
 

@@ -18,7 +18,7 @@ import models.User;
 /**
  * Servlet Filter implementation class LoginFilter
  */
-@WebFilter("/new")
+@WebFilter("/*")
 public class LoginFilter implements Filter {
 
     /**
@@ -48,7 +48,9 @@ public class LoginFilter implements Filter {
             // セッションスコープに保存された従業員（ログインユーザ）情報を取得
             User u = (User)session.getAttribute("login_user");
 
-            if(!servlet_path.equals("/login")) {        // ログイン画面以外について
+            if(!servlet_path.equals("/login")
+                    && !servlet_path.equals("/users/create")
+                    && !servlet_path.equals("/users/new")) {        // ログイン画面以外について
                 // ログアウトしている状態であれば
                 // ログイン画面にリダイレクト
                 if(u == null) {

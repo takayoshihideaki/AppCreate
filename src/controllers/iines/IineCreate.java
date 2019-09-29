@@ -59,7 +59,7 @@ public class IineCreate extends HttpServlet {
 
         tx.commit();
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/reports/iine.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/index");
         rd.forward(request, response);
     }
 

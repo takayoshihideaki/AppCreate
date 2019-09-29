@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="<c:url value='/css/reset.css' />">
 <link rel="stylesheet" href="<c:url value='/css/style.css' />">
 <link rel="stylesheet" href="<c:url value='/css/style2.css' />">
+<link rel="stylesheet" href="<c:url value='/css/style3.css' />">
 </head>
 
 <body>

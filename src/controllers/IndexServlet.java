@@ -12,6 +12,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import models.Comment;
 
+import models.User;
 import utils.DBUtil;
 import javax.servlet.RequestDispatcher;
 
@@ -37,6 +38,9 @@ public class IndexServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
+
+        User u = (User) request.getSession().getAttribute("login_user");
+
 
 
 
@@ -65,6 +69,20 @@ public class IndexServlet extends HttpServlet {
             iineCountList.add((int)iineCount);
         }
 
+        List<Integer> iineCountList2 = new ArrayList<Integer>();
+
+        for(Comment comment : comments) {
+            long user_iine = (long)em.createNamedQuery("getIineCount2", Long.class)
+                    .setParameter("id",comment.getId())
+                    .setParameter("idd",u.getId())
+                    .getSingleResult();
+            iineCountList2.add((int)user_iine);
+        }
+
+
+
+
+
 
         em.close();
 
@@ -72,6 +90,7 @@ public class IndexServlet extends HttpServlet {
 
 
         request.setAttribute("iineCountList",iineCountList );
+        request.setAttribute("iineCountList2",iineCountList2 );
         request.setAttribute("comments", comments);
         request.setAttribute("comments_count", comments_count);     // 全件数
         request.setAttribute("page", page);                         // ページ数

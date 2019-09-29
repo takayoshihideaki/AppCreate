@@ -12,12 +12,9 @@
         </c:if>
         <h2 class="itiran">コメント一覧</h2>
         <div>
-
             <ul>
-<c:set var="stm" value="0" />
+                <c:set var="stm" value="0" />
                 <c:forEach var="comment" items="${comments}">
-
-
                     <li class="box2"><c:choose>
                             <c:when test="${sessionScope.login_user.id == comment.user.id}">
                                 <a
@@ -31,20 +28,40 @@
                             </c:otherwise>
                         </c:choose> ：【題名】<c:out value="${comment.title}">
                         </c:out>&emsp;&emsp;<fmt:formatDate value="${comment.updated_at}"
-                            pattern="yyyy-MM-dd HH:mm:ss" />&emsp; &emsp;
-                        <button type="button" class="but">
-                            いいね!
-                            <c:out value="${iineCountList[stm]}" />
-                        </button>
-                        <br /> <br /> <c:out value="${comment.content}" /></li>
+                            pattern="yyyy-MM-dd HH:mm:ss" />&emsp; &emsp; <c:choose>
+                            <c:when test="${iineCountList2[stm] > 0}">
 
+                                <button type="button" class="button1">
+                                    いいね!
+                                    <c:out value="${iineCountList[stm]}" />
+                                </button>
+                                <a
+                                    href="<c:url value='/IineDelete?comment_id=${comment.id}&user_id=${sessionScope.login_user.id}' />"><button
+                                        type="button" class="button2">いいね! を取り消す</button></a>
+                                <br />
+                                <br />
+                                <br />
+                                <c:out value="${comment.content}" />
+                            </c:when>
+                            <c:otherwise>
+                                <a
+                                    href="<c:url value='/IineCreate?comment_id=${comment.id}&user_id=${sessionScope.login_user.id}' />">
+                                    <button type="button" class="button1">
+                                        いいね!
+                                        <c:out value="${iineCountList[stm]}" />
+                                    </button>
+                                </a>
+                                <br />
+                                <br />
+                                <br />
+                                <c:out value="${comment.content}" />
+
+                            </c:otherwise>
+                        </c:choose></li>
 
                     <c:set var="stm" value="${stm + 1}" />
-
                 </c:forEach>
-
             </ul>
-
         </div>
         <div id="pagination">
             （全 ${comments_count} 件）<br />
