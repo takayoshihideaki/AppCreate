@@ -19,7 +19,7 @@
                 <h1><span>31ちゃんねる</span>
                 <c:choose>
                 <c:when test="${sessionScope.login_user != null}">
-                    <c:out value="${sessionScope.login_user.name}" />&nbsp;さん&nbsp;&nbsp;&nbsp;
+                    <div class="user_name">ようこそ&nbsp;<c:out value="${sessionScope.login_user.name}" />&nbsp;さん</div>&nbsp;&nbsp;&nbsp;
                          <a class="log" href="<c:url value='/logout' />">ログアウト</a>
                 </c:when>
                 <c:otherwise>

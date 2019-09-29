@@ -9,7 +9,7 @@
   border-radius: 4px;/*角の丸み*/
   box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
   font-weight: bold;
-
+  cursor: pointer;
 
 }
 
@@ -24,6 +24,7 @@
   border-radius: 4px;/*角の丸み*/
   box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
   font-weight: bold;
+  cursor: pointer;
 }
 #flush_iine {
     width: 100%;
@@ -42,4 +43,20 @@
     margin-bottom: 15px;
     color: white;
     background-color:#ff69b4;
+}
+.user_name{
+    color:black;
+    display: inline-block;
+
+}
+h2{
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    font-size: 36px;
+    margin-bottom: 15px;
 }
