@@ -38,29 +38,38 @@ public class IineCreate extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+//        EntityManagerの生成
         EntityManager em = DBUtil.createEntityManager();
 
-         EntityTransaction tx = em.getTransaction();
+//        EntityTransactioの生成
+        EntityTransaction tx = em.getTransaction();
 
+//       EntityTransactioの開始
         tx.begin();
 
+
+//      コメントid,ユーザーidを元にインスタンスを生成
         Comment c = em.find(Comment.class,Integer.parseInt(request.getParameter("comment_id")));
         User u = em.find(User.class,Integer.parseInt(request.getParameter("user_id")));
 
-
+//      いいねインスタンスを生成
         Iine ii = new Iine();
 
-
+//      生成したコメントid,ユーザーidをデータベースに保存
         ii.setComment(c);
         ii.setUser(u);
 
-
+//      更新したデータベースを保存
         em.persist(ii);
 
+//        EntityTransactioのデータをコッミットして終了
         tx.commit();
 
+//      フラッシュをセッションスコープに保存
         request.getSession().setAttribute("iineflush", "いいね！を押しました");
 
+//      /indexへフォワード
         RequestDispatcher rd = request.getRequestDispatcher("/index");
         rd.forward(request, response);
     }
